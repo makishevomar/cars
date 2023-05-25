@@ -11,6 +11,18 @@ class CarsController extends Controller
 {
 	public $template = '../resources/views/';
 
+	public function indexAll()
+	{
+		$categoriesObject = new Category();
+		$carsObject = new Car();
+
+		$categories = $categoriesObject->get();
+
+		foreach ($categories as $key => $category) {
+			$categories[$key]['cars'] = $carsObject->whereAll('categoria_id',$category[0]);
+		}
+		include '../resources/views/index.php';
+	}
 	public function index()
 	{
 		$categoriesObject = new Category();
@@ -21,7 +33,7 @@ class CarsController extends Controller
 		foreach ($categories as $key => $category) {
 			$categories[$key]['cars'] = $carsObject->whereAll('categoria_id',$category[0]);
 		}
-		include '../resources/views/cars/index.php';
+		include '../resources/views/admin/cars/index.php';
 	}
 	
 	public function editCar(){
@@ -37,14 +49,14 @@ class CarsController extends Controller
 		
 			$categories = $categoryObject->get();
 
-			include '../resources/views/cars/edit.php';
+			include '../resources/views/admin/cars/edit.php';
 	
 	}
 	public function createCar(){
 			$categoryObject = new Category();
 			$categories = $categoryObject->get();
 
-			include '../resources/views/cars/create.php';
+			include '../resources/views/admin/cars/create.php';
 	}
 	public function deleteCar(){
 		$id = $_POST['id'];

@@ -76,10 +76,18 @@ class Builder extends Database{
 			$result = mysqli_query($this->connect,$query);
 	}
 	function storeCategory($data){
-		$name = $_POST['name'];
+		$name = $data['name'];//$_POST
 		$query = "INSERT INTO categories(name) VALUES('$name')";
 		$result = mysqli_query($this->connect,$query);
 
+	}
+	function storeUser($data){
+		$name = $data['name'];
+		$lastname = $data['lastname'];
+		$login = $data['login'];
+		$password = $data['password'];
+		$query = "INSERT INTO users(name,lastname,login,password) VALUES ('$name','$lastname','$login','$password')";
+		$result = mysqli_query($this->connect,$query);
 	}
 
 }

@@ -11,7 +11,7 @@ class CategoriesController extends Controller
 	public function categoryF(){
 		$categoryObject = new Category();
 		$categories = $categoryObject->get();
-		include '../resources/views/categories/index.php';
+		include '../resources/views/admin/categories/index.php';
 	}
 		public function editCategory(){
 
@@ -26,7 +26,7 @@ class CategoriesController extends Controller
 		
 			#$categories = $categoryObject->get();
 
-			include '../resources/views/categories/edit.php';
+			include '../resources/views/admin/categories/edit.php';
 	
 	}
 		public function update(){
@@ -44,7 +44,7 @@ class CategoriesController extends Controller
 			$categoryObject = new Category();
 			$categories = $categoryObject->get();
 
-			include '../resources/views/categories/create.php';
+			include '../resources/views/admin/categories/create.php';
 
 		}
 		public function storeCategory(){

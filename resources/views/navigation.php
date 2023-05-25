@@ -4,23 +4,21 @@
             <i class="fa fa-bars"></i>
             <span class="sr-only">Toggle Menu</span>
         </button>
-        <a class="navbar-brand" href="#" style="margin-left: 15px;">First App</a>
+        <a class="navbar-brand" href="#" style="margin-left: 15px;">Koleso Group</a>
 
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="/">Main</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/categories">Category</a>
-                </li>
+             
                 <!--                <li class="nav-item">-->
                 <!--                    <a class="nav-link" href="/product">Продукция</a>-->
                 <!--                </li>-->
+               
                 <li class="nav-item">
-                    <a class="nav-link" href="/cars/create">Create car</a>
+                    <a class="nav-link" href="/admin/login">admin panel</a>
                 </li>
-
 
             </ul>
         </div>
