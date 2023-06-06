@@ -32,13 +32,13 @@ class CategoriesController extends Controller
 		public function update(){
 		$categoryObject = new Category();
 		$categoryObject->update($_POST);
-
+		header('Location: /categories');
 		}
 		public function deleteCategory(){
 		$id = $_POST['id'];
 		$categoryObject = new Category();
 		$categoryObject->delete($id);
-		
+		header('Location: /categories');
 	}	
 		public function createCategory(){
 			$categoryObject = new Category();
@@ -50,6 +50,7 @@ class CategoriesController extends Controller
 		public function storeCategory(){
 				$categoryObject = new Category();
 				$categoryObject->storeCategory($_POST);
+				header('Location: /categories');
 		}
 
 

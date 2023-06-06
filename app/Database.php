@@ -1,10 +1,11 @@
 <?php
 namespace App;
+use App\Database\Connection;
 
 abstract class Database{
 	public $connect;
 	function __construct(){
-		$this->connect = mysqli_connect('localhost','root','','firstapp');
+		$this->connect = Connection::getInstance()->connect();
 	}
 
 	abstract function get();

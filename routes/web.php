@@ -2,18 +2,21 @@
 use App\Controllers\CarsController;
 use App\Controllers\CategoriesController;
 use App\Controllers\UsersController;
+use App\Controllers\CommentaryController;
 use App\Route;
 $route = $_SERVER['REQUEST_URI'];
 $template = '../resources/views/';
-
+$commentController = new CommentaryController();
 $carsController = new CarsController();
 $categoryController = new CategoriesController();
 $usersController = new UsersController();
+
 #var_dump($_SERVER);
 #print_r($route);
-#Route::get('/','SiteController@index');
+#Route::get('/','SiteController@index'); 
 if($route=='/'){
 	$carsController->indexAll();
+	
 }
 elseif($route=='/cars/edit'){
 	$carsController->editCar();
@@ -87,4 +90,8 @@ elseif($route=='/admin/regacc'){
 		$usersController->storeUser();
 		header('Location: /admin/login');
 		}
+elseif($route=='/comment'){
+	$usersController->storeUser();
+header('Location: /');
+}
 ?>

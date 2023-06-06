@@ -86,6 +86,7 @@ class Builder extends Database{
 		$lastname = $data['lastname'];
 		$login = $data['login'];
 		$password = $data['password'];
+		$password = password_hash($password, PASSWORD_BCRYPT);
 		$query = "INSERT INTO users(name,lastname,login,password) VALUES ('$name','$lastname','$login','$password')";
 		$result = mysqli_query($this->connect,$query);
 	}

@@ -20,7 +20,9 @@ class UsersController extends Controller
 		$login = $_POST['login'];
 			print_r($_POST);
 		$password = $_POST['password'];
-		print_r($password);
+		$passwordhash = password_hash($password, PASSWORD_BCRYPT);
+		
+		
 		if(!$login){
     		echo "login doesnt exist";
     		die;
@@ -35,10 +37,12 @@ class UsersController extends Controller
 		}
 		$user = $userObject->where('login',$login);
 		$pass = $user[4];
+		print_r($pass);
+		print_r($password);
 		if(!$user){
 			echo "this user doesnt exist";
 		}
-		if($password==$pass){
+		if(password_verify($password, $passwordhash)){
 			echo "password correct";
 			$_SESSION['admin'] = $user;
 			echo '<meta http-equiv="refresh" content="1; url=/admin">';
@@ -58,5 +62,15 @@ class UsersController extends Controller
 
 		$userObject = new User();
 		$userObject->storeUser($_POST);
+	}
+
+
+
+
+	public function admindex(){
+		include '../resources/views/admin/index.php';
+	}
+	public function adregic(){
+		include '../resources/views/admin/index.php';
 	}
 }

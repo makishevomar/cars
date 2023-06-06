@@ -56,7 +56,7 @@
     echo '<p>'.$fetch[1].' '.$fetch[2].' '.$fetch[3].'</p>';
     ?>
 
-    <form action="/update/cars" method="POST" enctype="multipart/form-data">
+    <form action="/cars/update" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="id" value="<?php echo $fetch[0]?>">
         <div class="form-group">
         <label for="name" class="col-form-label">Name</label>
